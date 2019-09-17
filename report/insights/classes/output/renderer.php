@@ -121,4 +121,28 @@ class renderer extends plugin_renderer_base {
 
         return $output;
     }
+
+    /**
+     * Returns the insight heading for the insights report.
+     *
+     * @param  \core_analytics\local\target\base $target
+     * @return string The heading's HTML including an icon with info about the target if $targetname'_info' is defined.
+     */
+    public function render_insight_heading(\core_analytics\local\target\base $target): string {
+
+        $targetname = $target->get_name();
+        $text = format_string($targetname);
+
+        $targetinfostr = $targetname->get_identifier() . 'info';
+        if (get_string_manager()->string_exists($targetinfostr, $targetname->get_component()) &&
+                get_string_manager()->string_exists($targetinfostr . '_help', $targetname->get_component())) {
+            // Heading with help icon if there is an info text for this insight.
+            return $this->heading_with_help($text, $targetinfostr, $targetname->get_component(),
+                '', '', 2, 'mb-2');
+        }
+
+        // Simple heading if there are no info strings for this insight report.
+        return $this->heading($text, 2, 'mb-2');
+    }
+
 }

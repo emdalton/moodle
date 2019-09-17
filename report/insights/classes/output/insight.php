@@ -89,7 +89,7 @@ class insight implements \renderable, \templatable {
         $data->modelid = $this->model->get_id();
         $data->contextid = $this->context->id;
         $data->predictionid = $predictiondata->id;
-        $data->insightname = format_string($target->get_name());
+        $data->insightname = $output->render_insight_heading($target);
 
         $data->showpredictionheading = true;
         if (!$target->is_linear()) {
