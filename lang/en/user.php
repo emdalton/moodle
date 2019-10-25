@@ -128,4 +128,4 @@ $string['privacy:sessionpath'] = 'Session data';
 $string['target:upcomingactivitiesdue'] = 'Upcoming activities due';
 $string['target:upcomingactivitiesdue_help'] = 'This target generates reminders for upcoming activities due.';
 $string['target:upcomingactivitiesdueinfo'] = 'Upcoming activities due';
-$string['target:upcomingactivitiesdueinfo_help'] = 'This is the managers view for the upcoming activities due insight. This student received a notification listing their activities due during the next days.';
+$string['target:upcomingactivitiesdueinfo_help'] = 'This is the manager\'s view for all upcoming "activities due" insights. These students have received these insights directly.';
