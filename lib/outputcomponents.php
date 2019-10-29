@@ -484,10 +484,12 @@ class help_icon implements renderable, templatable {
      *  string with _help suffix is used for the actual help text.
      *  string with _link suffix is used to create a link to further info (if it exists)
      * @param string $component
+     * @param mixed $a The params for the help lang string (not for the title)
      */
-    public function __construct($identifier, $component) {
+    public function __construct($identifier, $component, $a = null) {
         $this->identifier = $identifier;
         $this->component  = $component;
+        $this->a = $a;
     }
 
     /**
@@ -520,7 +522,7 @@ class help_icon implements renderable, templatable {
             $alt = get_string('helpwiththis');
         }
 
-        $data = get_formatted_help_string($this->identifier, $this->component, false);
+        $data = get_formatted_help_string($this->identifier, $this->component, false, $this->a);
 
         $data->alt = $alt;
         $data->icon = (new pix_icon('help', $alt, 'core', ['class' => 'iconhelp']))->export_for_template($output);

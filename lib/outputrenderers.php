@@ -2368,10 +2368,11 @@ class core_renderer extends renderer_base {
      * @param string $identifier The keyword that defines a help page
      * @param string $component component name
      * @param string|bool $linktext true means use $title as link text, string means link text value
+     * @param mixed $a The params for the lang string
      * @return string HTML fragment
      */
-    public function help_icon($identifier, $component = 'moodle', $linktext = '') {
-        $icon = new help_icon($identifier, $component);
+    public function help_icon($identifier, $component = 'moodle', $linktext = '', $a = null) {
+        $icon = new help_icon($identifier, $component, $a);
         $icon->diag_strings();
         if ($linktext === true) {
             $icon->linktext = get_string($icon->identifier, $icon->component);
